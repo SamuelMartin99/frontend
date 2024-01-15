@@ -1,10 +1,141 @@
-import React from 'react'
-import './Navbar.css'
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
+import logo from '../Images/Logo-nova.png';
 
-function Navbar() {
+
+
+const Navbar = () => {
+  // Estados para controlar el estado del botón y la barra lateral
+  const [isButtonOpen, setButtonOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  // Función para abrir el botón y la barra lateral
+  const openButton = () => {
+    setButtonOpen(true);
+    setMenuOpen(true);
+
+  };
+
+  // Función para cerrar el botón y la barra lateral
+  const closeButton = () => {
+    setButtonOpen(false);
+    setMenuOpen(false);
+
+  };
+
+  // Efecto para manejar el cambio en el tamaño de la pantalla
+  useEffect(() => {
+    const handleResize = () => {
+      const isSmallScreen = window.innerWidth <= 767;
+
+      setButtonOpen(isSmallScreen);
+
+      //abrir el menu solo si es una pantalla chica y el boton no esta ya abierto
+
+      if (isSmallScreen && !isButtonOpen) {
+        setMenuOpen(true);
+
+      } else {
+        setMenuOpen(false);
+      }
+    };
+
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isButtonOpen]);
+
+  // Definición de elementos del menú y submenús
+  const navItems = [
+    { label: 'Inicio', link: '/' },
+    { label: 'Productos', link: '/', submenu: ['REMERAS', 'HOODIES'] },
+    { label: 'Contacto', link: '/contacto/' },
+    { label: 'TALLES', link: '/talles/' },
+    { label: 'Política de Devolución', link: '/politica-de-devolucion/' },
+  ];
+
+  // Renderizado del componente
   return (
-    <div>Navbar</div>
-  )
-}
+    <div className="main-nav">
 
-export default Navbar
+
+      <div className='logo-nav' id='logo'>
+        <img src={logo} alt="nova-logo" id='nova-png' />
+        <p>shopping market</p>
+      </div>
+
+
+      {/*<div className='carro' id='carrito-compras'>
+
+        <div className='login-button'>
+          <button id="login-button">LOGIN</button>
+        </div>
+        <img src={carrito} alt="icon-compras" />
+
+      </div>
+
+*/}
+
+
+
+
+
+
+      {/* <div className='main-nav'> */}
+
+      <div className="sidebar">
+
+        {isButtonOpen ? (
+          // Mostrar el botón si la pantalla es pequeña
+          <button onClick={isMenuOpen ? closeButton : openButton} className='responsive-button menu'>
+            ☰
+          </button>
+        ) : (
+          // Mostrar la lista de navegación si la pantalla es lo suficientemente grande
+          <ul className={`nav-list ${isButtonOpen ? 'open' : ''}`}>
+            {navItems.map((item, index) => (
+              <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
+                <a href={item.link}>{item.label}</a>
+                {item.submenu && (
+                  <div className="dropdown-content">
+                    {item.submenu.map((subItem, subIndex) => (
+                      <a key={subIndex} href={`/${subItem.toLowerCase()}/`}>{subItem}</a>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+
+
+
+        {isMenuOpen && (
+          // Mostrar la barra lateral si está abierta
+          <div >
+            <ul className='sidebar-container'>
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a href={item.link}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+
+
+
+          </div>
+        )}
+      </div>
+
+
+    </div>
+  );
+};
+
+export default Navbar;

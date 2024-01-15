@@ -1,0 +1,160 @@
+/* Reset de estilos para el body y el margen del navegador */
+body, nav, ul, li, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos del nav principal */
+  .main-nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .logo-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  #nova-png {
+    max-width: 100px;
+    margin-right: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .carro {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-button button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .login-button button:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Estilos del botón de menú responsive */
+  .responsive-button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Estilos de la lista de navegación */
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .nav-item a:hover {
+    color: #007bff;
+  }
+  
+  /* Estilos del dropdown */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Estilos de la barra lateral */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-container {
+    list-style: none;
+    margin: 20px 0;
+  }
+  
+  .sidebar-container li {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos responsivos */
+  @media only screen and (max-width: 767px) {
+    .nav-list {
+      flex-direction: column;
+    }
+  
+    .nav-item {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    #nova-png {
+      margin-right: 0;
+    }
+  
+    .responsive-button {
+      margin-left: auto;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .nav-list.open {
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-item {
+      margin-bottom: 10px;
+    }
+  }
+  
