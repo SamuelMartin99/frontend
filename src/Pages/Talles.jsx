@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Contacto() {
+export default function Talles() {
   return (
-    <div>Contacto</div>
+    <div>Talles</div>
   )
 }

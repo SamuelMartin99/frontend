@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import logo from '../Images/Logo-nova.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -53,11 +54,11 @@ const Navbar = () => {
 
   // Definición de elementos del menú y submenús
   const navItems = [
-    { label: 'Inicio', link: '/' },
-    { label: 'Productos', link: '/', submenu: ['REMERAS', 'HOODIES'] },
-    { label: 'Contacto', link: '/contacto/' },
-    { label: 'TALLES', link: '/talles/' },
-    { label: 'Política de Devolución', link: '/politica-de-devolucion/' },
+    { label: 'Inicio', Link: '/inicio' },
+    { label: 'Productos', Link: '/productos', submenu: ['REMERAS', 'HOODIES'] },
+    { label: 'Contacto', Link: '/contacto/' },
+    { label: 'TALLES', Link: '/talles/' },
+    { label: 'Política de Devolución', Link: '/politica-de-devolucion/' },
   ];
 
   // Renderizado del componente
@@ -101,11 +102,11 @@ const Navbar = () => {
           <ul className={`nav-list ${isButtonOpen ? 'open' : ''}`}>
             {navItems.map((item, index) => (
               <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
-                <a href={item.link}>{item.label}</a>
+                <Link to={item.link}>{item.label}</Link>
                 {item.submenu && (
                   <div className="dropdown-content">
                     {item.submenu.map((subItem, subIndex) => (
-                      <a key={subIndex} href={`/${subItem.toLowerCase()}/`}>{subItem}</a>
+                      <Link key={subIndex} to={`/${subItem.toLowerCase()}/`}>{subItem}</Link>
                     ))}
                   </div>
                 )}
@@ -122,7 +123,7 @@ const Navbar = () => {
             <ul className='sidebar-container'>
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a href={item.link}>{item.label}</a>
+                  <Link to={item.Link}>{item.label}</Link>
                 </li>
               ))}
             </ul>
