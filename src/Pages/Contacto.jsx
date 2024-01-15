@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-export default function Contacto() {
+function Contacto() {
   return (
     <div>Contacto</div>
   )
 }
+
+export default Contacto;

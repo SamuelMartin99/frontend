@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-export default function Inicio() {
+function Inicio() {
   return (
     <div>Inicio</div>
   )
 }
+
+export default Inicio;

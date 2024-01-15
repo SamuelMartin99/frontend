@@ -102,7 +102,7 @@ const Navbar = () => {
           <ul className={`nav-list ${isButtonOpen ? 'open' : ''}`}>
             {navItems.map((item, index) => (
               <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
-                <Link to={item.link}>{item.label}</Link>
+                <Link to={item.Link}>{item.label}</Link>
                 {item.submenu && (
                   <div className="dropdown-content">
                     {item.submenu.map((subItem, subIndex) => (

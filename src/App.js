@@ -14,11 +14,11 @@ function App() {
         <header className="App-header">
           <Navbar />
           <Routes>
-            <Route path='/inicio' Component={Inicio} />
-            <Route path='/productos' Component={Productos} />
-            <Route path='/contacto' Component={Contacto} />
-            <Route path='/talles' Component={Talles} />
-            <Route path='/devolucion' Component={Devolucion} />
+            <Route path='/inicio' Component={<Inicio />} />
+            <Route path='/productos' Component={<Productos />} />
+            <Route path='/contacto' Component={<Contacto/>} />
+            <Route path='/talles' Component={<Talles />} />
+            <Route path='/devolucion' Component={<Devolucion />} />
           </Routes>
         </header>
       </div>

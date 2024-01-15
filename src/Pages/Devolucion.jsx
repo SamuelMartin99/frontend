@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-export default function Devolucion() {
+function Devolucion() {
   return (
     <div>Devolucion</div>
   )
 }
+
+export default Devolucion;
