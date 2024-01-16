@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Inicio from './Pages/Inicio';
 import Productos from './Pages/Productos';
@@ -9,20 +9,26 @@ import Devolucion from './Pages/Devolucion';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Navbar />
-          <Routes>
-            <Route path='/inicio' Component={<Inicio />} />
-            <Route path='/productos' Component={<Productos />} />
-            <Route path='/contacto' Component={<Contacto/>} />
-            <Route path='/talles' Component={<Talles />} />
-            <Route path='/devolucion' Component={<Devolucion />} />
-          </Routes>
-        </header>
-      </div>
-    </Router>
+
+
+    <div className="App">
+      <BrowserRouter>
+        
+          <header className="App-header">
+            <Navbar />
+            <Routes>
+              <Route path='/inicio' element={<Inicio category='inicio'/>} />
+              <Route path='/productos' element={<Productos />} />
+              <Route path='/contacto' element={<Contacto />} />
+              <Route path='/talles' element={<Talles />} />
+              <Route path='/devolucion' element={<Devolucion />} />
+            </Routes>
+          </header>
+
+        
+
+      </BrowserRouter>
+    </div>
   );
 }
 
