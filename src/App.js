@@ -18,10 +18,10 @@ function App() {
             <Navbar />
             <Routes>
               <Route path='/inicio' element={<Inicio category='inicio'/>} />
-              <Route path='/productos' element={<Productos />} />
-              <Route path='/contacto' element={<Contacto />} />
-              <Route path='/talles' element={<Talles />} />
-              <Route path='/devolucion' element={<Devolucion />} />
+              <Route path='/productos' element={<Productos category='productos'/>} />
+              <Route path='/contacto' element={<Contacto category='contacto'/>} />
+              <Route path='/talles' element={<Talles category='talles'/>} />
+              <Route path='/devolucion' element={<Devolucion category='devolucion'/>} />
             </Routes>
           </header>
 

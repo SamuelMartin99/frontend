@@ -9,10 +9,21 @@ body, nav, ul, li, p, button {
   .main-nav {
     background-color: #333;
     color: #fff;
+    display: block;
+    
+  }
+
+  .nav-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+  }
+
+  .nav-bot{
+    padding:10px;
+    border-top: 2px solid #f1f1f1;
+    display: flex;
+    justify-content: center;
   }
   
   .logo-nav {
