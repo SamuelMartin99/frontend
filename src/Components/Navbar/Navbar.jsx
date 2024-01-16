@@ -98,7 +98,7 @@ const Navbar = () => {
 
             {isButtonOpen ? (
               // Mostrar el botón si la pantalla es pequeña
-              <button onClick={isButtonOpen ? closeButton : openButton} className='responsive-button menu'>
+              <button onClick={isMenuOpen ? closeButton : openButton} className='responsive-button menu'>
                 ☰
               </button>
             ) : (
