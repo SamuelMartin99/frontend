@@ -56,7 +56,7 @@ const Navbar = () => {
   // Definición de elementos del menú y submenús
   const navItems = [
     { label: 'Inicio', Link: '/inicio' },
-    { label: 'Productos', Link: '/productos', submenu: ['REMERAS', 'HOODIES'] },
+    { label: 'Productos', Link: '/productos', submenu: ['REMERAS', 'HOODIES', 'CAMPERAS', 'ACCESORIOS', 'COMPLEMENTOS PARA REGALO', 'XMAYOR', 'PANTS'] },
     { label: 'Contacto', Link: '/contacto/' },
     { label: 'TALLES', Link: '/talles/' },
     { label: 'Política de Devolución', Link: '/devolucion/' },
@@ -98,7 +98,7 @@ const Navbar = () => {
 
             {isButtonOpen ? (
               // Mostrar el botón si la pantalla es pequeña
-              <button onClick={isMenuOpen ? closeButton : openButton} className='responsive-button menu'>
+              <button onClick={isButtonOpen ? closeButton : openButton} className='responsive-button menu'>
                 ☰
               </button>
             ) : (

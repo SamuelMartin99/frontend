@@ -29,16 +29,17 @@ body, nav, ul, li, p, button {
   .logo-nav {
     display: flex;
     align-items: center;
+  
   }
   
   #nova-png {
     max-width: 100px;
-    margin-right: 10px;
+    margin-right: 30px;
   }
   
   p {
     font-size: 18px;
-    font-weight: bold;
+  
   }
   
   .carro {
