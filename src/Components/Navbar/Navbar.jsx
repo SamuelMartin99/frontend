@@ -9,6 +9,20 @@ const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
+
+  const closeMenuAndModal = () => {
+
+    setModalOpen(false);
+  };
+
+  const handleOptionClick = () => {
+    setModalOpen(false);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       const isSmallScreen = window.innerWidth <= 767;
@@ -23,9 +37,10 @@ const Navbar = () => {
     };
   }, []);
 
-  const toggleModal = () => {
-    setModalOpen(!isModalOpen);
-  };
+
+
+
+
 
   const navItems = [
     { label: 'Inicio', Link: '/inicio' },
@@ -58,7 +73,7 @@ const Navbar = () => {
                 <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
                   <Link to={item.Link}>{item.label}</Link>
                   {item.submenu && (
-                    <div className="dropdown-content">
+                    <div className="lista-nav">
                       {item.submenu.map((subItem, subIndex) => (
                         <Link key={subIndex} to={`/${subItem.toLowerCase()}/`}>{subItem}</Link>
                       ))}
@@ -69,8 +84,6 @@ const Navbar = () => {
             </ul>
           )}
 
-          {/* Botón para abrir el modal */}
-          <button onClick={toggleModal}>Abrir Modal</button>
 
           {/* Modal */}
           <Modal
@@ -78,15 +91,26 @@ const Navbar = () => {
             onRequestClose={toggleModal}
             contentLabel="Ejemplo de Modal"
             className="custom-modal"
+            overlayClassName="modal-overlay"
           >
             <h2>Contenido del Modal</h2>
             {navItems.map((item, index) => (
               <div key={index}>
-                <Link to={item.Link}>{item.label}</Link>
+                <Link to={item.Link} onClick={handleOptionClick}>{item.label} </Link>
               </div>
             ))}
-            <button onClick={toggleModal}>Cerrar Modal</button>
+            {/*<button onClick={handleOptionClick} id='btn-cmodal'>Cerrar Modal</button>*/}
           </Modal>
+
+          {/* Botón para abrir el modal */}
+          {!isModalOpen && (
+
+            <button onClick={toggleModal} className='open-modal-button'>Abrir Modal</button>
+
+          )}
+
+
+
         </div>
       </div>
     </nav>

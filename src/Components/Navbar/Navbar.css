@@ -90,7 +90,7 @@ p {
 }
 
 /* Estilos del dropdown */
-.dropdown-content {
+.lista-nav {
   display: none;
   position: absolute;
   background-color: #fff;
@@ -98,18 +98,18 @@ p {
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .lista-nav {
   display: block;
 }
 
-.dropdown-content a {
+.lista-nav a {
   color: #333;
   padding: 12px 16px;
   display: block;
   text-decoration: none;
 }
 
-.dropdown-content a:hover {
+.lista-nav a:hover {
   background-color: #f1f1f1;
 }
 
@@ -131,18 +131,44 @@ p {
 
 /* Agrega estos estilos al final de tu archivo Navbar.css */
 
+@keyframes slideInFromLeft {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+  
+}
+
+
 .custom-modal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
+  color: #f1f1f1;
+  background-color: #333;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   max-width: 80%;
-  max-height: 80%;
+  height: 90%;
   overflow-y: auto;
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+
+
+.custom-modal a{
+  color: #f1f1f1;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+
+}
+
+.custom-modal a:hover{
+  color: #f1f1f1;
+  text-decoration: none;
+
 }
 
 .custom-modal h2 {
@@ -150,15 +176,30 @@ p {
 }
 
 .custom-modal button {
-  background-color: #333;
-  color: #fff;
+  background-color: #d4c8c8;
+  color: #333;
   border: none;
   padding: 10px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .custom-modal button:hover {
   background-color: #555;
+}
+
+
+/*conf boton para abrir el modal, aparece solo en pantallas menores a 767px*/
+
+
+
+.open-modal-button{
+  display: none;
+  background-color: #d4c8c8;
+  color: #333;
+  border: none;
+  padding: 10px;
+ 
 }
 
 
@@ -199,4 +240,9 @@ p {
   .nav-item {
     margin-bottom: 10px;
   }
+
+  .open-modal-button{
+    display: block;
+  }
 }
+
