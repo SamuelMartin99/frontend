@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import './Navbar.css';
 import logo from '../Images/Logo-nova.png';
@@ -105,8 +107,9 @@ const Navbar = () => {
           {/* Botón para abrir el modal */}
           {!isModalOpen && (
 
-            <button onClick={toggleModal} className='open-modal-button'>Menú</button>
-
+            <button onClick={toggleModal} className='open-modal-button'>
+              <FontAwesomeIcon icon={faBars} /> {/* Icono de hamburguesa usando @fortawesome */}
+            </button>
           )}
 
 
