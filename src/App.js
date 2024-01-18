@@ -6,6 +6,8 @@ import Productos from './Pages/Productos';
 import Contacto from './Pages/Contacto';
 import Talles from './Pages/Talles';
 import Devolucion from './Pages/Devolucion';
+import Login from './Pages/Login';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -22,9 +24,12 @@ function App() {
               <Route path='/contacto' element={<Contacto category='contacto' />} />
               <Route path='/talles' element={<Talles category='talles' />} />
               <Route path='/devolucion' element={<Devolucion category='devolucion' />} />
+              
             </Routes>
           </div>
         </header>
+
+        <Footer />
       </BrowserRouter>
     </div>
   );

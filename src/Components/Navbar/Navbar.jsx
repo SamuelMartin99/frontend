@@ -64,7 +64,7 @@ const Navbar = () => {
             <img src={carrito} alt="icon-compras" />
           </div>
           <div className='login-button'>
-            <button>LOGIN</button>
+            <button>Login</button>
           </div>
         </div>
 
