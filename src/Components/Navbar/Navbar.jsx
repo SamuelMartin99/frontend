@@ -59,10 +59,10 @@ const Navbar = () => {
             <p>shopping market</p>
           </div>
           <div className='carro' id='carrito-compras'>
-            <div className='login-button'>
-              <button id="login-button">LOGIN</button>
-            </div>
             <img src={carrito} alt="icon-compras" />
+          </div>
+          <div className='login-button'>
+            <button>LOGIN</button>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
           {/* Botón para abrir el modal */}
           {!isModalOpen && (
 
-            <button onClick={toggleModal} className='open-modal-button'>Abrir Modal</button>
+            <button onClick={toggleModal} className='open-modal-button'>Menú</button>
 
           )}
 

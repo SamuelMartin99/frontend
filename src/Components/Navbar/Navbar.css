@@ -1,5 +1,10 @@
 /* Reset de estilos para el body y el margen del navegador */
-body, nav, ul, li, p, button {
+body,
+nav,
+ul,
+li,
+p,
+button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -47,6 +52,7 @@ p {
 .login-button button {
   background-color: transparent;
   border: 1px solid #fff;
+  margin-right:20px;
   color: #fff;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -132,18 +138,21 @@ p {
 /* Agrega estos estilos al final de tu archivo Navbar.css */
 
 @keyframes slideInFromLeft {
-  from{
-    transform: translateX(-100%);
+  from {
+    transform: translateX(100%);
   }
-  to{
+
+  to {
     transform: translateX(0);
   }
-  
+
 }
 
 
 .custom-modal {
-  position: absolute;
+  position: fixed;
+  right: 0;
+  top: 0;
   color: #f1f1f1;
   background-color: #333;
   padding: 20px;
@@ -157,7 +166,8 @@ p {
 
 
 
-.custom-modal a{
+
+.custom-modal a {
   color: #f1f1f1;
   text-decoration: none;
   padding: 10px;
@@ -165,7 +175,7 @@ p {
 
 }
 
-.custom-modal a:hover{
+.custom-modal a:hover {
   color: #f1f1f1;
   text-decoration: none;
 
@@ -193,14 +203,20 @@ p {
 
 
 
-.open-modal-button{
+.open-modal-button {
   display: none;
-  background-color: #d4c8c8;
-  color: #333;
-  border: none;
   padding: 10px;
- 
+  margin-left: auto;
+  margin-right:20px;
+  margin-bottom: 3px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 1rem 1rem;
+  cursor: pointer;
+
 }
+
 
 
 /* Estilos responsivos */
@@ -241,8 +257,18 @@ p {
     margin-bottom: 10px;
   }
 
-  .open-modal-button{
+  .open-modal-button {
     display: block;
+    margin-left: auto;
+
   }
 }
 
+.nav-bot {
+  padding: 0;
+  /* Reduce el padding en pantallas pequeñas */
+  background-color: transparent;
+  /* Hace el fondo transparente */
+  border-top: none;
+  /* Elimina el borde superior en pantallas pequeñas */
+}
