@@ -95,7 +95,7 @@ const Navbar = () => {
             className="custom-modal"
             overlayClassName="modal-overlay"
           >
-            <h2>Contenido del Modal</h2>
+            <h2>MENÚ</h2>
             {navItems.map((item, index) => (
               <div key={index}>
                 <Link to={item.Link} onClick={handleOptionClick}>{item.label} </Link>
