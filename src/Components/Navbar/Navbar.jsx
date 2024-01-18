@@ -1,141 +1,122 @@
 import React, { useState, useEffect } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-modal';
 import './Navbar.css';
 import logo from '../Images/Logo-nova.png';
+import carrito from '../Images/carrito-48px.png';
 import { Link } from 'react-router-dom';
 
-
-
 const Navbar = () => {
-  // Estados para controlar el estado del botón y la barra lateral
-  const [isButtonOpen, setButtonOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  // Función para abrir el botón y la barra lateral
-  const openButton = () => {
-    setButtonOpen(true);
-    setMenuOpen(true);
-
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
   };
 
-  // Función para cerrar el botón y la barra lateral
-  const closeButton = () => {
-    setButtonOpen(false);
-    setMenuOpen(false);
 
+  const closeMenuAndModal = () => {
+
+    setModalOpen(false);
   };
 
-  // Efecto para manejar el cambio en el tamaño de la pantalla
+  const handleOptionClick = () => {
+    setModalOpen(false);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       const isSmallScreen = window.innerWidth <= 767;
-
-      setButtonOpen(isSmallScreen);
-
-      //abrir el menu solo si es una pantalla chica y el boton no esta ya abierto
-
-      if (isSmallScreen && !isButtonOpen) {
-        setMenuOpen(true);
-
-      } else {
-        setMenuOpen(false);
-      }
+      setMenuOpen(isSmallScreen);
     };
 
-
     handleResize();
-
     window.addEventListener('resize', handleResize);
 
-    // Limpiar el evento al desmontar el componente
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [isButtonOpen]);
+  }, []);
 
-  // Definición de elementos del menú y submenús
+
+
+
+
+
   const navItems = [
     { label: 'Inicio', Link: '/inicio' },
-    { label: 'Productos', Link: '/productos', submenu: ['REMERAS', 'HOODIES'] },
+    { label: 'Productos', Link: '/productos', submenu: ['REMERAS', 'HOODIES', 'CAMPERAS', 'ACCESORIOS', 'COMPLEMENTOS PARA REGALO', 'XMAYOR', 'PANTS'] },
     { label: 'Contacto', Link: '/contacto/' },
     { label: 'TALLES', Link: '/talles/' },
-    { label: 'Política de Devolución', Link: '/politica-de-devolucion/' },
+    { label: 'Política de Devolución', Link: '/devolucion/' },
   ];
 
-  // Renderizado del componente
   return (
-    <div className="main-nav">
-
-
-      <div className='logo-nav' id='logo'>
-        <img src={logo} alt="nova-logo" id='nova-png' />
-        <p>shopping market</p>
-      </div>
-
-
-      {/*<div className='carro' id='carrito-compras'>
-
-        <div className='login-button'>
-          <button id="login-button">LOGIN</button>
+    <nav>
+      <div className="main-nav">
+        <div className="nav-top">
+          <div className='logo-nav' id='logo'>
+            <img src={logo} alt="nova-logo" id='nova-png' />
+            <p>shopping market</p>
+          </div>
+          <div className='carro' id='carrito-compras'>
+            <img src={carrito} alt="icon-compras" />
+          </div>
+          <div className='login-button'>
+            <button>LOGIN</button>
+          </div>
         </div>
-        <img src={carrito} alt="icon-compras" />
 
-      </div>
-
-*/}
-
-
-
-
-
-
-      {/* <div className='main-nav'> */}
-
-      <div className="sidebar">
-
-        {isButtonOpen ? (
-          // Mostrar el botón si la pantalla es pequeña
-          <button onClick={isMenuOpen ? closeButton : openButton} className='responsive-button menu'>
-            ☰
-          </button>
-        ) : (
-          // Mostrar la lista de navegación si la pantalla es lo suficientemente grande
-          <ul className={`nav-list ${isButtonOpen ? 'open' : ''}`}>
-            {navItems.map((item, index) => (
-              <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
-                <Link to={item.link}>{item.label}</Link>
-                {item.submenu && (
-                  <div className="dropdown-content">
-                    {item.submenu.map((subItem, subIndex) => (
-                      <Link key={subIndex} to={`/${subItem.toLowerCase()}/`}>{subItem}</Link>
-                    ))}
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-
-
-
-        {isMenuOpen && (
-          // Mostrar la barra lateral si está abierta
-          <div >
-            <ul className='sidebar-container'>
+        <div className="nav-bot">
+          {(!isMenuOpen && !isModalOpen) && (
+            <ul className={`nav-list`}>
               {navItems.map((item, index) => (
-                <li key={index}>
+                <li key={index} className={`nav-item ${item.submenu ? 'dropdown' : ''}`}>
                   <Link to={item.Link}>{item.label}</Link>
+                  {item.submenu && (
+                    <div className="lista-nav">
+                      {item.submenu.map((subItem, subIndex) => (
+                        <Link key={subIndex} to={`/${subItem.toLowerCase()}/`}>{subItem}</Link>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
+          )}
+
+
+          {/* Modal */}
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={toggleModal}
+            contentLabel="Ejemplo de Modal"
+            className="custom-modal"
+            overlayClassName="modal-overlay"
+          >
+            <h2>MENÚ</h2>
+            {navItems.map((item, index) => (
+              <div key={index}>
+                <Link to={item.Link} onClick={handleOptionClick}>{item.label} </Link>
+              </div>
+            ))}
+            {/*<button onClick={handleOptionClick} id='btn-cmodal'>Cerrar Modal</button>*/}
+          </Modal>
+
+          {/* Botón para abrir el modal */}
+          {!isModalOpen && (
+
+            <button onClick={toggleModal} className='open-modal-button'>
+              <FontAwesomeIcon icon={faBars} /> {/* Icono de hamburguesa usando @fortawesome */}
+            </button>
+          )}
 
 
 
-          </div>
-        )}
+        </div>
       </div>
-
-
-    </div>
+    </nav>
   );
 };
 
