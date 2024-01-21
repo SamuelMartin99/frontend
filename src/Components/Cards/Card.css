@@ -1,9 +1,8 @@
-.cardComponent{
+.cardComponent {
     display: flex;
-    
-    align-items: center;
-    justify-content:center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-    
 
 }
+
