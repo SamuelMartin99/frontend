@@ -1,0 +1,39 @@
+
+
+
+.contenedor{
+    display: flex;
+    height: 70vh;
+}
+
+
+.sectionL{
+    background-color: aqua;
+    align-self: stretch;
+    min-width: 20vh;
+
+
+    
+}
+
+.sectionM{
+    align-self: stretch;
+    background-color: aquamarine;
+    width: 160vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+
+.sectionR{
+    background-color: black;
+    color: azure;
+    
+    align-self: flex-start;
+}
+
+
+

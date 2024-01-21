@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react'
+import Card from '../Components/Cards/Card'
 
 function Productos() {
   return (
-    <div>Productos</div>
+    <div>Productos
+      <Card/>
+    </div>
   )
 }
 
-export default Productos;
+export default Productos
+

@@ -3,9 +3,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import './Navbar.css';
-import logo from '../Images/Logo-nova.png';
-import carrito from '../Images/carrito-48px.png';
+import logo from '../Assets/Logo-nova.png';
+import carrito from '../Assets/carrito-48px.png';
 import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
